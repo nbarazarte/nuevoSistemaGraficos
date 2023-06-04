@@ -83,12 +83,80 @@ useEffect(() => {
     }
   }
 
-var midata = {
-    labels: ejex,
-    datasets: [ // Cada una de las líneas del gráfico
-        {
-            label: 'CN5',
-            data: cn5,
+  let midata = {
+      labels: ejex,
+      datasets: [ // Cada una de las líneas del gráfico
+          {
+              label: 'CN5',
+              data: cn5,
+              tension: 0.5,
+              fill : true,
+              borderColor: 'red',
+              backgroundColor: 'red',
+              pointRadius: 12,
+              pointBorderColor: 'black',
+              pointBackgroundColor: 'black',
+              datalabels: {
+              color: 'white',
+              labels: {
+                title: {
+                  font: {
+                    weight: 'bold',
+                    size:10
+                  }
+                },
+              }
+            }
+          
+          },
+          {
+              label: 'CN6',
+              data: cn6,
+              tension: 0.5,
+              fill : true,
+              borderColor: 'blue',
+              backgroundColor: 'blue',
+              pointRadius: 12,
+              pointBorderColor: 'black',
+              pointBackgroundColor: 'black', 
+              datalabels: {
+              color: 'white',
+              labels: {
+                title: {
+                  font: {
+                    weight: 'bold',
+                    size:10
+                  }
+                },
+              }
+            }
+
+          },
+          {
+            label: 'LU5',
+            data: lu5,
+            tension: 0.5,
+            fill : true,
+            borderColor: 'blue',
+            backgroundColor: 'blue',
+            pointRadius: 12,
+            pointBorderColor: 'black',
+            pointBackgroundColor: 'black', 
+            datalabels: {
+            color: 'white',
+            labels: {
+              title: {
+                font: {
+                  weight: 'bold',
+                  size:10
+                }
+              },
+            }
+          }
+          }, 
+          {
+            label: 'MB3',
+            data: mb3,
             tension: 0.5,
             fill : true,
             borderColor: 'red',
@@ -108,10 +176,32 @@ var midata = {
             }
           }
         
-        },
-        {
-            label: 'CN6',
-            data: cn6,
+          },
+          {
+              label: 'MB4',
+              data: mb4,
+              tension: 0.5,
+              fill : true,
+              borderColor: 'blue',
+              backgroundColor: 'blue',
+              pointRadius: 12,
+              pointBorderColor: 'black',
+              pointBackgroundColor: 'black', 
+              datalabels: {
+              color: 'white',
+              labels: {
+                title: {
+                  font: {
+                    weight: 'bold',
+                    size:10
+                  }
+                },
+              }
+            }
+          },
+          {
+            label: 'VAL',
+            data: val,
             tension: 0.5,
             fill : true,
             borderColor: 'blue',
@@ -130,113 +220,24 @@ var midata = {
               },
             }
           }
+          },                 
+      ],
+  };
 
+  let misoptions = {
+
+      plugins: {
+        legend: {
+          display: true
         },
-        {
-          label: 'LU5',
-          data: lu5,
-          tension: 0.5,
-          fill : true,
-          borderColor: 'blue',
-          backgroundColor: 'blue',
-          pointRadius: 12,
-          pointBorderColor: 'black',
-          pointBackgroundColor: 'black', 
-          datalabels: {
-          color: 'white',
-          labels: {
-            title: {
-              font: {
-                weight: 'bold',
-                size:10
-              }
-            },
-          }
-        }
-        }, 
-        {
-          label: 'MB3',
-          data: mb3,
-          tension: 0.5,
-          fill : true,
-          borderColor: 'red',
-          backgroundColor: 'red',
-          pointRadius: 12,
-          pointBorderColor: 'black',
-          pointBackgroundColor: 'black',
-          datalabels: {
-          color: 'white',
-          labels: {
-            title: {
-              font: {
-                weight: 'bold',
-                size:10
-              }
-            },
-          }
-        }
-      
+        title: {
+          display: true,
+          text: 'Trafico de Volumen en Voz por Hora',
         },
-        {
-            label: 'MB4',
-            data: mb4,
-            tension: 0.5,
-            fill : true,
-            borderColor: 'blue',
-            backgroundColor: 'blue',
-            pointRadius: 12,
-            pointBorderColor: 'black',
-            pointBackgroundColor: 'black', 
-            datalabels: {
-            color: 'white',
-            labels: {
-              title: {
-                font: {
-                  weight: 'bold',
-                  size:10
-                }
-              },
-            }
-          }
-        },
-        {
-          label: 'VAL',
-          data: val,
-          tension: 0.5,
-          fill : true,
-          borderColor: 'blue',
-          backgroundColor: 'blue',
-          pointRadius: 12,
-          pointBorderColor: 'black',
-          pointBackgroundColor: 'black', 
-          datalabels: {
-          color: 'white',
-          labels: {
-            title: {
-              font: {
-                weight: 'bold',
-                size:10
-              }
-            },
-          }
-        }
-        },                 
-    ],
-};
+    }
+  };
 
-var misoptions = {
-
-    plugins: {
-      legend: {
-        display: true
-      },
-      title: {
-        display: true,
-        text: 'Trafico de Volumen en Voz por Hora',
-      },
-  }
-};
-
+  
   return (
     <main>
       <h1>Gráficos</h1>
