@@ -14,6 +14,26 @@ let mb3 = [];
 let mb4 = []; 
 let val = [];
 
+let ac2 = [];
+let ac3 = []; 
+let bt2 = []; 
+let bt3 = []; 
+let cnt = []; 
+let faj = []; 
+let lc2 = []; 
+let lc3 = []; 
+let lms = []; 
+let lur = []; 
+let mc2 = []; 
+let mc4 = []; 
+let mt2 = []; 
+let pl2 = []; 
+let pt2 = []; 
+let sc2 = []; 
+let sc3 = []; 
+let sf2 = []; 
+let vr2 = [];
+
 useEffect(() => {
 
   const url = `http://localhost:3000/gsm`
@@ -45,9 +65,9 @@ useEffect(() => {
 
         let groupedByHour = miobj[c].reduce((acc, curr) => { //Agrupo por las horas
           if (!acc[curr.hora]) {
-          acc[curr.hora] = [curr];
+            acc[curr.hora] = [curr];
           } else {
-          acc[curr.hora].push(curr);
+            acc[curr.hora].push(curr);
           }
           return acc;
           }, {})
@@ -72,172 +92,90 @@ useEffect(() => {
   .catch(err => console.log(err))
 }, [])
 
+  let dataSetGrafica = []
+  let count = 0
+  let data = []
+
   for (const bsc in ejey) {
     for (const hora of ejex) {
-      bsc === 'CN5' ? cn5.push(Math.round(ejey[bsc][hora])) : 0
-      bsc === 'CN6' ? cn6.push(Math.round(ejey[bsc][hora])) : 0
-      bsc === 'LU5' ? lu5.push(Math.round(ejey[bsc][hora])) : 0
-      bsc === 'MB3' ? mb3.push(Math.round(ejey[bsc][hora])) : 0
-      bsc === 'MB4' ? mb4.push(Math.round(ejey[bsc][hora])) : 0
-      bsc === 'VAL' ? val.push(Math.round(ejey[bsc][hora])) : 0
+      
+      data[count] = () => {
+        //ZTE
+        if(bsc === 'CN5') { cn5.push(Math.round(ejey[bsc][hora])); return cn5 }
+        if(bsc === 'CN6') { cn6.push(Math.round(ejey[bsc][hora])); return cn6 }
+        if(bsc === 'LU5') { lu5.push(Math.round(ejey[bsc][hora])); return lu5 }
+        if(bsc === 'MB3') { mb3.push(Math.round(ejey[bsc][hora])); return mb3 }
+        if(bsc === 'MB4') { mb4.push(Math.round(ejey[bsc][hora])); return mb4 }
+        if(bsc === 'VAL') { val.push(Math.round(ejey[bsc][hora])); return val }
+
+        //HUAWEI
+        if(bsc === 'AC2') { ac2.push(Math.round(ejey[bsc][hora])); return ac2 }
+        if(bsc === 'AC3') { ac3.push(Math.round(ejey[bsc][hora])); return ac3 }
+        if(bsc === 'BT2') { bt2.push(Math.round(ejey[bsc][hora])); return bt2 }  
+        if(bsc === 'BT3') { bt3.push(Math.round(ejey[bsc][hora])); return bt3 }
+        if(bsc === 'CNT') { cnt.push(Math.round(ejey[bsc][hora])); return cnt }
+        if(bsc === 'FAJ') { faj.push(Math.round(ejey[bsc][hora])); return faj }
+        if(bsc === 'LC2') { lc2.push(Math.round(ejey[bsc][hora])); return lc2 }
+        if(bsc === 'LC3') { lc3.push(Math.round(ejey[bsc][hora])); return lc3 }
+        if(bsc === 'LMS') { lms.push(Math.round(ejey[bsc][hora])); return lms }
+        if(bsc === 'LUR') { lur.push(Math.round(ejey[bsc][hora])); return lur }
+        if(bsc === 'MC2') { mc2.push(Math.round(ejey[bsc][hora])); return mc2 }
+        if(bsc === 'MC4') { mc4.push(Math.round(ejey[bsc][hora])); return mc4 }
+        if(bsc === 'MT2') { mt2.push(Math.round(ejey[bsc][hora])); return mt2 }
+        if(bsc === 'PL2') { pl2.push(Math.round(ejey[bsc][hora])); return pl2 }
+        if(bsc === 'PT2') { pt2.push(Math.round(ejey[bsc][hora])); return pt2 }
+        if(bsc === 'SC2') { sc2.push(Math.round(ejey[bsc][hora])); return sc2 }
+        if(bsc === 'SC3') { sc3.push(Math.round(ejey[bsc][hora])); return sc3 }
+        if(bsc === 'SF2') { sf2.push(Math.round(ejey[bsc][hora])); return sf2 }
+        if(bsc === 'VR2') { vr2.push(Math.round(ejey[bsc][hora])); return vr2 }
+      }
+
+      dataSetGrafica[count] =  {
+          label: bsc,
+          data: data[count](),
+          tension: 0.5,
+          fill : true,
+          borderColor: 'red',
+          backgroundColor: 'red',
+          pointRadius: 12,
+          pointBorderColor: 'black',
+          pointBackgroundColor: 'black',
+          datalabels: {
+          color: 'white',
+          labels: {
+            title: {
+              font: {
+                weight: 'bold',
+                size:10
+              }
+            },
+          }
+        }
+      }
     }
+    count++
   }
 
-  let midata = {
-      labels: ejex,
-      datasets: [ // Cada una de las líneas del gráfico
-          {
-              label: 'CN5',
-              data: cn5,
-              tension: 0.5,
-              fill : true,
-              borderColor: 'red',
-              backgroundColor: 'red',
-              pointRadius: 12,
-              pointBorderColor: 'black',
-              pointBackgroundColor: 'black',
-              datalabels: {
-              color: 'white',
-              labels: {
-                title: {
-                  font: {
-                    weight: 'bold',
-                    size:10
-                  }
-                },
-              }
-            }
-          
-          },
-          {
-              label: 'CN6',
-              data: cn6,
-              tension: 0.5,
-              fill : true,
-              borderColor: 'blue',
-              backgroundColor: 'blue',
-              pointRadius: 12,
-              pointBorderColor: 'black',
-              pointBackgroundColor: 'black', 
-              datalabels: {
-              color: 'white',
-              labels: {
-                title: {
-                  font: {
-                    weight: 'bold',
-                    size:10
-                  }
-                },
-              }
-            }
+let midata = {
+    labels: ejex,
+    datasets: dataSetGrafica,
+};
 
-          },
-          {
-            label: 'LU5',
-            data: lu5,
-            tension: 0.5,
-            fill : true,
-            borderColor: 'blue',
-            backgroundColor: 'blue',
-            pointRadius: 12,
-            pointBorderColor: 'black',
-            pointBackgroundColor: 'black', 
-            datalabels: {
-            color: 'white',
-            labels: {
-              title: {
-                font: {
-                  weight: 'bold',
-                  size:10
-                }
-              },
-            }
-          }
-          }, 
-          {
-            label: 'MB3',
-            data: mb3,
-            tension: 0.5,
-            fill : true,
-            borderColor: 'red',
-            backgroundColor: 'red',
-            pointRadius: 12,
-            pointBorderColor: 'black',
-            pointBackgroundColor: 'black',
-            datalabels: {
-            color: 'white',
-            labels: {
-              title: {
-                font: {
-                  weight: 'bold',
-                  size:10
-                }
-              },
-            }
-          }
-        
-          },
-          {
-              label: 'MB4',
-              data: mb4,
-              tension: 0.5,
-              fill : true,
-              borderColor: 'blue',
-              backgroundColor: 'blue',
-              pointRadius: 12,
-              pointBorderColor: 'black',
-              pointBackgroundColor: 'black', 
-              datalabels: {
-              color: 'white',
-              labels: {
-                title: {
-                  font: {
-                    weight: 'bold',
-                    size:10
-                  }
-                },
-              }
-            }
-          },
-          {
-            label: 'VAL',
-            data: val,
-            tension: 0.5,
-            fill : true,
-            borderColor: 'blue',
-            backgroundColor: 'blue',
-            pointRadius: 12,
-            pointBorderColor: 'black',
-            pointBackgroundColor: 'black', 
-            datalabels: {
-            color: 'white',
-            labels: {
-              title: {
-                font: {
-                  weight: 'bold',
-                  size:10
-                }
-              },
-            }
-          }
-          },                 
-      ],
-  };
+//console.log( midata);
 
-  let misoptions = {
+let misoptions = {
 
-      plugins: {
-        legend: {
-          display: true
-        },
-        title: {
-          display: true,
-          text: 'Trafico de Volumen en Voz por Hora',
-        },
-    }
-  };
+    plugins: {
+      legend: {
+        display: true
+      },
+      title: {
+        display: true,
+        text: 'Trafico de Volumen en Voz por Hora',
+      },
+  }
+};
 
-  
   return (
     <main>
       <h1>Gráficos</h1>
