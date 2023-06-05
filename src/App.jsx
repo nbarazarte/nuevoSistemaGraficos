@@ -47,14 +47,8 @@ useEffect(() => {
     let miobj = {};
 
     for (const x of data) {
-
-      if(!horas.includes(x.hora)){
-        horas.push(x.hora)
-      } 
-
-      if(!centrales.includes(x.bsc)){
-        centrales.push(x.bsc)
-      }
+      if(!horas.includes(x.hora)) { horas.push(x.hora) } 
+      if(!centrales.includes(x.bsc)) { centrales.push(x.bsc) }
     }
 
     //console.log(data);
@@ -130,13 +124,24 @@ useEffect(() => {
         if(bsc === 'VR2') { vr2.push(Math.round(ejey[bsc][hora])); return vr2 }
       }
 
+      let color = () => {
+        let letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      let finalColor = color()
+
       dataSetGrafica[count] =  {
           label: bsc,
           data: data[count](),
           tension: 0.5,
           fill : true,
-          borderColor: 'red',
-          backgroundColor: 'red',
+          borderColor: finalColor,
+          backgroundColor: finalColor,
           pointRadius: 12,
           pointBorderColor: 'black',
           pointBackgroundColor: 'black',
