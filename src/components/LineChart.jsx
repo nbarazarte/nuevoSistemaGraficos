@@ -12,7 +12,6 @@ import {
   Legend,
 } from 'chart.js';
 
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -23,8 +22,6 @@ ChartJS.register(
   Legend,
   ChartDataLabels
 );
-
-
 
 const LineChart = ({midata, misoptions}) => {
   return (
