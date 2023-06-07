@@ -176,9 +176,7 @@ let misoptions = {
 
   return (
     <main>      
-      {
-        !ejex ? 'Cargando': <LineChart midata={midata} misoptions={misoptions}/>
-      }
+      <LineChart midata={midata} misoptions={misoptions}/>
     </main>
   )
 }

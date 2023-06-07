@@ -169,16 +169,14 @@ let misoptions = {
       },
       title: {
         display: true,
-        text: 'Trafico de Volumen de Voz por Hora',
+        text: 'Trafico de Volumen de Voz (Erlang)',
       },
   }
 };
 
   return (
     <main>      
-      {
-        !ejex ? 'Cargando': <LineChart midata={midata} misoptions={misoptions}/>
-      }
+      <LineChart midata={midata} misoptions={misoptions}/>
     </main>
   )
 }

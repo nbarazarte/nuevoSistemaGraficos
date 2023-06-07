@@ -3,7 +3,7 @@ import './App.css'
 import LineChart from './components/LineChart'
 
 
-function Congestion({proveedor}) {
+function Disponibilidad({proveedor}) {
 
 const [ejex, setEjex] = useState()
 const [ejey, setEjey] = useState({})
@@ -62,7 +62,7 @@ useEffect(() => {
         }, {})
         
         let averagesByHour = Object.keys(groupedByHour).reduce((acc, curr) => { //saco el promedio
-          const sum = groupedByHour[curr].reduce((a, c) => a + Number(c.congestion), 0);
+          const sum = groupedByHour[curr].reduce((a, c) => a + Number(c.disponibilidad), 0);
           const avg = sum / groupedByHour[curr].length;
           acc[curr] = avg;
           return acc;
@@ -169,7 +169,7 @@ let misoptions = {
       },
       title: {
         display: true,
-        text: 'Congestion (%)',
+        text: 'Disponibilidad (%)',
       },
   }
 };
@@ -181,4 +181,4 @@ let misoptions = {
   )
 }
 
-export default Congestion
+export default Disponibilidad

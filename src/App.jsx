@@ -4,6 +4,8 @@ import Congestion from './Congestion'
 import LlamadasCaidas from './LlamadasCaidas'
 import TraficoVolumenVoz from './TraficoVolumenVoz'
 import axios from 'axios'
+import Disponibilidad from './Disponibilidad'
+import Accesibilidad from './Accesibilidad'
 
 function App() {
 
@@ -12,16 +14,15 @@ function App() {
 
 useEffect(() => {
     
-/*     const url_huawei = `http://localhost:3000/gsm/huawei`
+    const url_huawei = `http://localhost:3000/gsm/huawei`
     axios.get(url_huawei)
     .then(res => {setDatahuawei(res.data)})  
-    .catch(err => console.log(err)) */
+    .catch(err => console.log(err))
     
     const url_zte = `http://localhost:3000/gsm/zte`
     axios.get(url_zte)
     .then(res => {setDataZte(res.data)})  
     .catch(err => console.log(err)) 
-
 
 }, [])
 
@@ -35,7 +36,11 @@ useEffect(() => {
             <hr /> 
             <TraficoVolumenVoz proveedor={datahuawei}/>
             <hr />
-            <Congestion proveedor={datahuawei}/>    
+            <Congestion proveedor={datahuawei}/>
+            <hr /> 
+            <Disponibilidad proveedor={datahuawei}/>
+            <hr />
+            <Accesibilidad proveedor={datahuawei}/>                
         </>        
         : 'Cargando'
     }    
@@ -47,26 +52,14 @@ useEffect(() => {
             <hr /> 
             <TraficoVolumenVoz proveedor={dataZte}/>
             <hr />
-            <Congestion proveedor={dataZte}/>    
+            <Congestion proveedor={dataZte}/>
+            <hr /> 
+            <Disponibilidad proveedor={dataZte}/>
+            <hr />
+            <Accesibilidad proveedor={dataZte}/>                   
         </>        
         : 'Cargando'
     }
-
-
-
-{/*       <h1>Gráficos GSM: Huawei</h1>
-        <LlamadasCaidas proveedor={'huawei'}/>
-        <hr /> 
-        <TraficoVolumenVoz proveedor={'huawei'}/>
-        <hr />
-        <Congestion proveedor={'huawei'}/>
-        <hr />
-        <h1>Gráficos GSM: ZTE</h1>
-        <LlamadasCaidas proveedor={'zte'}/>
-        <hr /> 
-        <TraficoVolumenVoz proveedor={'zte'}/>
-        <hr />
-        <Congestion proveedor={'zte'}/>   */}
     </>
   )
 }
