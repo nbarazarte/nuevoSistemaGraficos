@@ -7,38 +7,13 @@ function TraficoVolumenVoz({proveedor}) {
 
 const [ejex, setEjex] = useState()
 const [ejey, setEjey] = useState({})
-let cn5 = [];
-let cn6 = []; 
-let lu5 = []; 
-let mb3 = [];
-let mb4 = []; 
-let val = [];
-
-let ac2 = [];
-let ac3 = []; 
-let bt2 = []; 
-let bt3 = []; 
-let cnt = []; 
-let faj = []; 
-let lc2 = []; 
-let lc3 = []; 
-let lms = []; 
-let lur = []; 
-let mc2 = []; 
-let mc4 = []; 
-let mt2 = []; 
-let pl2 = []; 
-let pt2 = []; 
-let sc2 = []; 
-let sc3 = []; 
-let sf2 = []; 
-let vr2 = [];
+let cn5 = [], cn6 = [], lu5 = [], mb3 = [], mb4 = [], val = [];
+let ac2 = [], ac3 = [], bt2 = [], bt3 = [], cnt = [], faj = [], lc2 = [], lc3 = [], lms = [], lur = [], mc2 = [], mc4 = [], mt2 = [], pl2 = [], pt2 = [], sc2 = [], sc3 = [], sf2 = [], vr2 = [];
 
 useEffect(() => {
 
   const data = proveedor;
-  const centrales = [];
-  const horas = [];
+  const centrales = [], horas = [];
   let miobj = {};
 
   for (const x of data) {
@@ -78,9 +53,8 @@ useEffect(() => {
   
 }, [])
 
-  let dataSetGrafica = []
+  let dataSetGrafica = [], data = []
   let count = 0
-  let data = []
 
   for (const bsc in ejey) {
     for (const hora of ejex) {
