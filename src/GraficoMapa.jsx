@@ -3,7 +3,7 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 import proj4 from "proj4";
 import mapDataIE from "@highcharts/map-collection/countries/ve/ve-all.geo.json";
-import 'boxicons'
+import "boxicons";
 highchartsMap(Highcharts);
 
 function GraficoMapa({ proveedor, titulo }) {
@@ -14,7 +14,7 @@ function GraficoMapa({ proveedor, titulo }) {
   let dataFinalFallas = [];
 
   //console.log(proveedor);
-/*   const obj = [];
+  /*   const obj = [];
   for (let i = 0; i < proveedor.length; i++) {
     obj[i] = {
       z: 1,
@@ -25,7 +25,7 @@ function GraficoMapa({ proveedor, titulo }) {
   }
   dataFinal = obj; */
 
-  let operativas = proveedor.filter(oper => oper.estatus == 'Operativa')
+  let operativas = proveedor.filter((oper) => oper.estatus == "Operativa");
   const objOperativa = [];
   for (let i = 0; i < operativas.length; i++) {
     objOperativa[i] = {
@@ -37,7 +37,9 @@ function GraficoMapa({ proveedor, titulo }) {
   }
   dataFinalOperativas = objOperativa;
 
-  let parciales = proveedor.filter(oper => oper.estatus == 'Parcialmente Operativa')
+  let parciales = proveedor.filter(
+    (oper) => oper.estatus == "Parcialmente Operativa"
+  );
   const objParciales = [];
   for (let i = 0; i < parciales.length; i++) {
     objParciales[i] = {
@@ -49,7 +51,7 @@ function GraficoMapa({ proveedor, titulo }) {
   }
   dataFinalParciales = objParciales;
 
-  let fallas = proveedor.filter(oper => oper.estatus == 'Falla Total')
+  let fallas = proveedor.filter((oper) => oper.estatus == "Falla Total");
   const objFallas = [];
   for (let i = 0; i < fallas.length; i++) {
     objFallas[i] = {
@@ -87,6 +89,18 @@ function GraficoMapa({ proveedor, titulo }) {
     },
     mapNavigation: {
       enabled: true,
+      buttonOptions: {
+        alignTo: "spacingBox",
+        verticalAlign: "bottom",
+      },
+    },
+    mapView: {
+      padding: [0, 0, 50, 0],
+    },
+
+    legend: {
+      floating: true,
+      backgroundColor: "#ffffffcc",
     },
     tooltip: {
       headerFormat: "",
@@ -103,9 +117,9 @@ function GraficoMapa({ proveedor, titulo }) {
         marker: {
           lineWidth: 0.5,
           //lineColor: '#000',
-          symbol: 'circle',//mapmarker, circle
-          radius: 3
-      },        
+          symbol: "circle", //mapmarker, circle
+          radius: 3,
+        },
       },
     },
     series: [
@@ -169,7 +183,7 @@ function GraficoMapa({ proveedor, titulo }) {
   };
 
   return (
-    <>      
+    <>
       <HighchartsReact
         constructorType={"mapChart"}
         highcharts={Highcharts}
