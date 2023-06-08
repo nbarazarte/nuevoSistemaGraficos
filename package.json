@@ -12,6 +12,7 @@
   "dependencies": {
     "@highcharts/map-collection": "^2.1.0",
     "axios": "^1.4.0",
+    "boxicons": "^2.1.4",
     "chart.js": "^4.3.0",
     "highcharts": "^11.1.0",
     "highcharts-react-official": "^3.2.0",

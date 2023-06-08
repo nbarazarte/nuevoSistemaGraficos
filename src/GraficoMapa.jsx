@@ -3,6 +3,7 @@ import HighchartsReact from "highcharts-react-official";
 import highchartsMap from "highcharts/modules/map";
 import proj4 from "proj4";
 import mapDataIE from "@highcharts/map-collection/countries/ve/ve-all.geo.json";
+import 'boxicons'
 highchartsMap(Highcharts);
 
 function GraficoMapa({ proveedor, titulo }) {
@@ -98,6 +99,13 @@ function GraficoMapa({ proveedor, titulo }) {
       },
       mappoint: {
         turboThreshold: 5000,
+
+        marker: {
+          lineWidth: 0.5,
+          //lineColor: '#000',
+          symbol: 'circle',//mapmarker, circle
+          radius: 3
+      },        
       },
     },
     series: [
