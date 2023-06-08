@@ -92,7 +92,7 @@ function App() {
             <h1>Gráficos GSM: ZTE</h1>
              <GraficoMapa 
                 proveedor={estatusgsmzte}
-                titulo={'GSM'}
+                titulo={'Estatus de la red GSM por Estados'}
             /> 
             <hr />
             <GraficoLinea
