@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import GraficoLinea from './GraficoLinea'
 import GraficoMapa from './GraficoMapa'
+import GraficoPrueba from './GraficoPrueba'
 
 function App() {
 
@@ -43,8 +44,12 @@ function App() {
         datahuawei && estatusgsmhw ?
         <>
             <h1>Gráficos GSM: Huawei</h1>
+
+            {/* <GraficoPrueba /> */}
+
             <GraficoMapa 
                 proveedor={estatusgsmhw}
+                titulo={'GSM'}
             />
             <hr />
             <GraficoLinea
@@ -91,6 +96,7 @@ function App() {
             <h1>Gráficos GSM: ZTE</h1>
              <GraficoMapa 
                 proveedor={estatusgsmzte}
+                titulo={'GSM'}
             /> 
             <hr />
             <GraficoLinea
