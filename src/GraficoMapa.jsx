@@ -78,8 +78,8 @@ function GraficoMapa({ proveedor, titulo }) {
       align: "center",
     },
     subtitle: {
-      text: "",
-      align: "left",
+      text: `Total <b>${proveedor.length}</b> Radio Bases`,
+      align: "center",
     },
     credits: {
       enabled: false,
@@ -112,7 +112,7 @@ function GraficoMapa({ proveedor, titulo }) {
       {
         // Specify points using lat/lon
         type: "mappoint",
-        name: "Operativas",
+        name: `Operativas <b>${operativas.length}</b>`,
         color: "green",
         //data: [{ z: 1, keyword: "Ruiz Pineda", lat: 10.43, lon: -66.99 }, { z: 1, keyword: "Barrio El Rosario Valle de la Pascua", lat: 9.22, lon: -66.01 }],
         data: dataFinalOperativas,
@@ -128,7 +128,7 @@ function GraficoMapa({ proveedor, titulo }) {
       {
         // Specify points using lat/lon
         type: "mappoint",
-        name: "Parciales",
+        name: `Parciales <b>${parciales.length}</b>`,
         color: "orange",
         //data: [{ z: 1, keyword: "Ruiz Pineda", lat: 10.43, lon: -66.99 }, { z: 1, keyword: "Barrio El Rosario Valle de la Pascua", lat: 9.22, lon: -66.01 }],
         data: dataFinalParciales,
@@ -144,7 +144,7 @@ function GraficoMapa({ proveedor, titulo }) {
       {
         // Specify points using lat/lon
         type: "mappoint",
-        name: "Fallas",
+        name: `Fallas <b>${fallas.length}</b>`,
         color: "red",
         //data: [{ z: 1, keyword: "Ruiz Pineda", lat: 10.43, lon: -66.99 }, { z: 1, keyword: "Barrio El Rosario Valle de la Pascua", lat: 9.22, lon: -66.01 }],
         data: dataFinalFallas,
