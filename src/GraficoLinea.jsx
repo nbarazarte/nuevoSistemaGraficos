@@ -161,7 +161,22 @@ let midata = {
 };
 
 let misoptions = {
-
+  responsive: true, // not necessary, default is `true`,
+  maintainAspectRatio: false, // default is `true`, default `aspectRatio` is 2
+  scales: {
+    y: {
+      beginAtZero: true,
+      grid: {
+        //color: '#000',
+        drawBorder: false 
+      }
+    },
+    x: {
+      grid: {
+        display: false,
+      }
+    }
+  },   
     plugins: {
       legend: {
         display: true
@@ -173,8 +188,13 @@ let misoptions = {
   }
 };
 
+
+
+
+
+
   return (
-    <main>      
+    <main className="grid">      
       <LineChart midata={midata} misoptions={misoptions}/>
     </main>
   )

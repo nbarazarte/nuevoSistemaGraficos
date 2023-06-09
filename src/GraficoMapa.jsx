@@ -74,6 +74,7 @@ function GraficoMapa({ proveedor, titulo }) {
 
   const mapOptions = {
     chart: {
+      backgroundColor: '#B7B7B7',
       map: "countries/ve/ve-all",
     },
     title: {
@@ -95,13 +96,20 @@ function GraficoMapa({ proveedor, titulo }) {
       },
     },
     mapView: {
-      padding: [0, 0, 50, 0],
+      padding: [0, 0, 8, 0],
     },
-
-    legend: {
+     legend: {
       floating: true,
       backgroundColor: "#ffffffcc",
-    },
+    }, 
+/*     legend: {
+      align: 'right',
+      verticalAlign: 'top',
+      layout: 'vertical',
+      itemStyle: {
+          color: '#ddd'
+      }
+  },   */  
     tooltip: {
       headerFormat: "",
       pointFormat:
@@ -128,7 +136,7 @@ function GraficoMapa({ proveedor, titulo }) {
         name: "Basemap",
         mapData: mapDataIE,
         borderColor: "#A0A0A0",
-        nullColor: "rgba(177, 244, 177, 0.5)",
+        nullColor: "#EEEEEE",//"rgba(177, 244, 177, 0.5)",
         showInLegend: false,
       },
       {
@@ -150,7 +158,7 @@ function GraficoMapa({ proveedor, titulo }) {
       {
         // Specify points using lat/lon
         type: "mappoint",
-        name: `Parciales <b>${parciales.length}</b>`,
+        name: `Fuera de Servicio Parcial <b>${parciales.length}</b>`,
         color: "orange",
         //data: [{ z: 1, keyword: "Ruiz Pineda", lat: 10.43, lon: -66.99 }, { z: 1, keyword: "Barrio El Rosario Valle de la Pascua", lat: 9.22, lon: -66.01 }],
         data: dataFinalParciales,
@@ -166,7 +174,7 @@ function GraficoMapa({ proveedor, titulo }) {
       {
         // Specify points using lat/lon
         type: "mappoint",
-        name: `Fallas <b>${fallas.length}</b>`,
+        name: `Fuera de Servicio Total <b>${fallas.length}</b>`,
         color: "red",
         //data: [{ z: 1, keyword: "Ruiz Pineda", lat: 10.43, lon: -66.99 }, { z: 1, keyword: "Barrio El Rosario Valle de la Pascua", lat: 9.22, lon: -66.01 }],
         data: dataFinalFallas,

@@ -25,7 +25,7 @@ function App() {
         .then(res => {setEstatusgsmhw(res.data)})  
         .catch(err => console.log(err))        
         
-/*         const url_zte = `http://localhost:3000/gsm/zte`
+        const url_zte = `http://localhost:3000/gsm/zte`
         axios.get(url_zte)
         .then(res => {setDataZte(res.data)})  
         .catch(err => console.log(err))
@@ -33,7 +33,7 @@ function App() {
         const url_zte_estatus_gsm = `http://localhost:3000/gsm/estatus/zte`
         axios.get(url_zte_estatus_gsm)
         .then(res => {setEstatusgsmzte(res.data)})  
-        .catch(err => console.log(err))      */   
+        .catch(err => console.log(err)) 
 
     }, [])
 
@@ -86,7 +86,7 @@ function App() {
         : 'Cargando datos de Huawei'
     }
     <hr /> 
-{/*     {
+    {
         dataZte && estatusgsmzte ?
         <>
             <h1>Gráficos GSM: ZTE</h1>
@@ -131,7 +131,7 @@ function App() {
             />
         </>        
         : 'Cargando datos de ZTE'
-    } */}
+    }
     </>
   )
 }
